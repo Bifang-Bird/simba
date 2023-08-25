@@ -14,7 +14,8 @@ import (
 "io/ioutil"
 "log"
 "os"
-"path/filepath"
+	"os/exec"
+	"path/filepath"
 )
 
 func copyFile(srcPath, dstPath string) error {
@@ -66,6 +67,29 @@ func CopyDirectory(srcDir, dstDir string) error {
 		}
 	}
 
+	return nil
+}
+
+func CloneProject(repoURL, destinationDir string) error{
+	// Git 仓库 URL
+	//repoURL := "https://github.com/username/repository.git"
+	// 目标目录 destinationDir := "path/to/destination"
+	// 创建目标目录
+	err := os.MkdirAll(destinationDir, 0755)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// 执行 git clone 命令
+	cmd := exec.Command("git", "clone", repoURL, destinationDir)
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	err = cmd.Run()
+	if err != nil {
+		return err
+	}
+	fmt.Println("项目创建完成")
 	return nil
 }
 

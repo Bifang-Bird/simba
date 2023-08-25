@@ -46,16 +46,21 @@ func main() {
 	}
 }
 func load(dstDir *string){
-	srcDir := "./simbaproject"
-	err := os.MkdirAll(*dstDir, 0755)
+	//srcDir := "./simbaproject"
+	//err := os.MkdirAll(*dstDir, 0755)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//err = generator.CopyDirectory(srcDir, *dstDir)
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//fmt.Println("项目初始化成功")
+	repoURL := "https://github.com/Bifang-Bird/lexington.git"
+	err:=generator.CloneProject(repoURL,*dstDir)
 	if err != nil {
 		log.Fatal(err)
 	}
-	err = generator.CopyDirectory(srcDir, *dstDir)
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println("项目初始化成功")
 }
 
 func generateGrpcServiceImpl(packageName,structName,grpcgo *string){
