@@ -15,7 +15,7 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"simba/generator"
+	"github.com/Bifang-Bird/simba/generator"
 )
 
 func main() {

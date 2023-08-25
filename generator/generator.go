@@ -12,7 +12,7 @@ package generator
 import (
 "fmt"
 "os"
-	"simba/handle"
+	"github.com/Bifang-Bird/simba/handle"
 	"strings"
 )
 
