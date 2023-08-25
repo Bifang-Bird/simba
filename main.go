@@ -22,9 +22,9 @@ func main() {
 
 	methodName := flag.String("m", "", "Method name")
 	dstDir := flag.String("d", "", "Dst name")
-	packageName := flag.String("package", "", "Package name")
-	structName := flag.String("struct", "", "Struct name")
-	grpcgo := flag.String("grpcgo", "", "grpcgo name")
+	packageName := flag.String("p", "", "Package name")
+	structName := flag.String("s", "", "Struct name")
+	grpcgo := flag.String("g", "", "grpcgo name")
 	flag.Parse()
 	fmt.Println("loading file:", *grpcgo)
 
